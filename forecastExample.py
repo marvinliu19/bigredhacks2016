@@ -55,14 +55,13 @@ def main():
 
         tempMin = 'TempMin: ' + str(daily_data_point.temperatureMin)
         print(tempMin)
-        print('asdf')
+
 
     day = 1
     fullTextMsg = ''
 
     for daily_data_point in by_day.data:
-        tempMin = 'TempMin: ' + str(daily_data_point.temperatureMin)
-        tempMax = 'TempMax: ' + str(daily_data_point.temperatureMax)
+        temp = 'Temp: ' + str(int(daily_data_point.temperatureMin)) + '-' + str(int(daily_data_point.temperatureMax))
         precProb = 'PrecProb: ' + str(daily_data_point.precipProbability)
         if daily_data_point.precipProbability == 0:
             precType = 'PrecType: None'
@@ -73,7 +72,7 @@ def main():
 
         textMsg = 'Day' + str(day)
 
-        textMsg = textMsg + '\n' + tempMin + '\n' + tempMax + '\n' + precProb
+        textMsg = temp + '\n' + precProb
         if daily_data_point.precipProbability != 0:
             textMsg = textMsg + '\n' + precType + '\n' + precInten
 
