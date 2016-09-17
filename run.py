@@ -21,7 +21,7 @@ def respond():
     else:
         #args = text_body.split()
         #message = "Oops! That's not a recognized command. Please try again."
-        areaCode = '949'
+        areaCode = '310'
         if from_number != None:
             areaCode = from_number[2:5]
         coord = geocode.getCoordinates(areaCode)
