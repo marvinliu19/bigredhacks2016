@@ -30,7 +30,7 @@ def sevenDayForecast(lat, lng):
 
             precType = str(daily_data_point.precipType)
             text = temp + '\n' + precProb + " chance of " + inten + precType
-            
+
 
 
         date  = str(datetime.date.today() + datetime.timedelta(days=day))
@@ -44,4 +44,4 @@ def sevenDayForecast(lat, lng):
     return (fullTextMsg)
 
 if __name__ == "__sevenDayForecast__":
-    sevenDayForcast(33, -117)
+    print sevenDayForcast(33, -117)

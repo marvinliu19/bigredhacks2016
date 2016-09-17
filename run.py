@@ -9,7 +9,7 @@ import atexit
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 
-# ===================++BACKGROUND===============================================
+# =============================BACKGROUND=======================================
 account_sid = "AC069bbc61f7db2e120ba0fff6fc342e6e"
 auth_token = "44dae430182496def82f6992a64de198"
 client = TwilioRestClient(account_sid, auth_token)
@@ -23,7 +23,7 @@ scheduler = BackgroundScheduler()
 scheduler.start()
 scheduler.add_job(
     func=send_sms,
-    trigger=IntervalTrigger(seconds=5),
+    trigger=IntervalTrigger(seconds=60),
     id='send_sms',
     name='send_sms every 5 seconds',
     replace_existing=True)
