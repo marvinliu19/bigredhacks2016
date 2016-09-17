@@ -1,7 +1,7 @@
 import datetime
 import forecastio
 
-def sevenDayForcast(lat, lng):
+def sevenDayForecast(lat, lng):
     api_key = "ce9fcb652adc05193d2aa663d1a3f4ac"
 
     forecast = forecastio.load_forecast(api_key, lat, lng)
@@ -24,6 +24,7 @@ def sevenDayForcast(lat, lng):
         textMsg = 'Day' + str(day)
 
         textMsg = textMsg + temp + '\n' + precProb
+
         if daily_data_point.precipProbability != 0:
             textMsg = textMsg + '\n' + precType + '\n' + precInten
 
@@ -31,9 +32,5 @@ def sevenDayForcast(lat, lng):
         day = day + 1
     return (fullTextMsg)
 
-
-
-
-
 if __name__ == "__sevenDayForecast__":
-    sevenDayForcast()
+    sevenDayForcast(33, -117)
