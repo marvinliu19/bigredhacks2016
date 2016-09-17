@@ -16,7 +16,7 @@ def respond():
     from_number = request.values.get('From', None)
     text_body = request.values.get('Body', None)
 
-    if text_body == "seven day forecast":
+    if text_body == "seven day forecast" or text_body == None:
         areaCode = '310'
         if from_number != None:
             areaCode = from_number[2:5]
