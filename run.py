@@ -3,12 +3,23 @@ import twilio.twiml
 
 app = Flask(__name__)
 
+callers = {
+    "+19496488407": "Dalvor"
+}
+
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
-    """Respond to incoming calls with a simple text message."""
+    """Respond and greet the caller by name."""
+
+    from_number = request.values.get('From', None)
+    if from_number in callers:
+        message = callers[from_number] + ", thanks for the message!"
+    else:
+        message = "Monkey, thanks for the message!"
 
     resp = twilio.twiml.Response()
-    resp.message("Hello, Mobile Monkey")
+    with resp.message(message) as m:
+        m.media("https://demo.twilio.com/owl.png")
     return str(resp)
 
 if __name__ == "__main__":
