@@ -61,14 +61,14 @@ def main():
     fullTextMsg = ''
 
     for daily_data_point in by_day.data:
-        temp = 'Temp: ' + str(int(daily_data_point.temperatureMin)) + '-' + str(int(daily_data_point.temperatureMax))
-        precProb = 'PrecProb: ' + str(daily_data_point.precipProbability)
+        temp = 'Temp:' + str(int(daily_data_point.temperatureMin)) + '-' + str(int(daily_data_point.temperatureMax))
+        precProb = 'Prob:' + str(daily_data_point.precipProbability)
         if daily_data_point.precipProbability == 0:
-            precType = 'PrecType: None'
-            precInten = 'precInten: 0'
+            precType = 'Type:na'
+            precInten = 'Inten:0'
         else:
-            precType = 'PrecType: ' + str(daily_data_point.precipType)
-            precInten = 'precInten: ' + str(daily_data_point.precipIntensity)
+            precType = 'Type:' + str(daily_data_point.precipType)
+            precInten = 'Inten:' + str(round(daily_data_point.precipIntensity,3))
 
         textMsg = 'Day' + str(day)
 
