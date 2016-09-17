@@ -8,15 +8,20 @@ callers = {
 }
 
 @app.route("/", methods=['GET', 'POST'])
-def hello_monkey():
+def respond():
     """Respond and greet the caller by name."""
 
     from_number = request.values.get('From', None)
-    if from_number in callers:
-        message = callers[from_number] + ", thanks for the message!"
-    else:
-        message = "Monkey, thanks for the message!"
+    body = request.values.get('Body', None)
 
+    if body != None:
+        if from_number in callers:
+            message = "Hi " + callers[from_number] + "! You are now subscribed to" + body + "."
+        else:
+            message = "Hi! You are now subscribed to" + body + "."
+    else:
+        message = "Oops! Something went wrong :("
+        
     resp = twilio.twiml.Response()
     with resp.message(message) as m:
         m.media("https://demo.twilio.com/owl.png")
