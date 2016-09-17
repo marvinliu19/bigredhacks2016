@@ -43,10 +43,51 @@ def main():
 
     for daily_data_point in by_day.data:
         print daily_data_point
+        print ('TempMin %s' % (daily_data_point.temperatureMin))
+        print ('TempMax %s' % (daily_data_point.temperatureMax))
+        print ('PrecProb %s' % (daily_data_point.precipProbability))
+        if daily_data_point.precipProbability == 0:
+            print('PrecType None')
+            print('PrecIntensity None')
+        else:
+            print ('PrecType %s' % (daily_data_point.precipType))
+            print ('PrecIntensity %s' % (daily_data_point.precipIntensity))
 
-    print ('asdf')
+        tempMin = 'TempMin: ' + str(daily_data_point.temperatureMin)
+        print(tempMin)
+        print('asdf')
+
+    day = 1
+    fullTextMsg = ''
+
+    for daily_data_point in by_day.data:
+        tempMin = 'TempMin: ' + str(daily_data_point.temperatureMin)
+        tempMax = 'TempMax: ' + str(daily_data_point.temperatureMax)
+        precProb = 'PrecProb: ' + str(daily_data_point.precipProbability)
+        if daily_data_point.precipProbability == 0:
+            precType = 'PrecType: None'
+            precInten = 'precInten: 0'
+        else:
+            precType = 'PrecType: ' + str(daily_data_point.precipType)
+            precInten = 'precInten: ' + str(daily_data_point.precipIntensity)
+
+        textMsg = 'Day' + str(day)
+
+        textMsg = textMsg + '\n' + tempMin + '\n' + tempMax + '\n' + precProb
+        if daily_data_point.precipProbability != 0:
+            textMsg = textMsg + '\n' + precType + '\n' + precInten
+
+        fullTextMsg = fullTextMsg + textMsg + '\n'
+        day = day + 1
+    print (fullTextMsg)
+
+
     print (by_day.summary)
-
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
