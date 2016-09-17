@@ -9,7 +9,7 @@ def sevenDayForecast(lat, lng):
     by_day = forecast.daily()
 
     day = 1
-    fullTextMsg = ''
+    fullTextMsg = '\n'
 
     for daily_data_point in by_day.data:
         temp = 'Temp:' + str(int(daily_data_point.temperatureMin)) + '-' + str(int(daily_data_point.temperatureMax))
@@ -21,7 +21,7 @@ def sevenDayForecast(lat, lng):
             precType = 'Type:' + str(daily_data_point.precipType)
             precInten = 'Inten:' + str(round(daily_data_point.precipIntensity,3))
 
-        textMsg = 'Day' + str(day)
+        textMsg = 'Day' + str(day) + '\n'
 
         textMsg = textMsg + temp + '\n' + precProb
 
