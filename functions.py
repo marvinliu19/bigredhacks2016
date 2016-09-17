@@ -8,25 +8,36 @@ def sevenDayForecast(lat, lng):
 
     by_day = forecast.daily()
 
-    day = 1
+    day = 0
     fullTextMsg = '\n'
 
     for daily_data_point in by_day.data:
         temp = 'Temp:' + str(int(daily_data_point.temperatureMin)) + '-' + str(int(daily_data_point.temperatureMax))
-        precProb = 'Prob:' + str(daily_data_point.precipProbability)
+        precProb = '{:.0%}'.format(daily_data_point.precipProbability)
         if daily_data_point.precipProbability == 0:
-            precType = 'Type:na'
-            precInten = 'Inten:0'
+            precProb = precProb + '\n'
+            text = temp
         else:
-            precType = 'Type:' + str(daily_data_point.precipType)
-            precInten = 'Inten:' + str(round(daily_data_point.precipIntensity,3))
+            inten = ''
+            if daily_data_point.precipIntensity < .002:
+                inten = 'very light '
+            elif daily_data_point.precipIntensity < .017:
+                inten = 'light '
+            elif daily_data_point.precipIntensity < .01:
+                inten = 'moderate '
+            else:
+                inten = 'heavy '
 
-        textMsg = 'Day' + str(day) + '\n'
+            precType = str(daily_data_point.precipType)
+            text = temp + '\n' + precProb + " chance of " + inten + precType
+            
 
-        textMsg = textMsg + temp + '\n' + precProb
 
-        if daily_data_point.precipProbability != 0:
-            textMsg = textMsg + '\n' + precType + '\n' + precInten
+        date  = str(datetime.date.today() + datetime.timedelta(days=day))
+        date  = date[5:]
+        textMsg = date + '\n'
+
+        textMsg = textMsg + text
 
         fullTextMsg = fullTextMsg + textMsg + '\n'
         day = day + 1
