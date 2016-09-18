@@ -1,6 +1,10 @@
 import datetime
 import forecastio
 
+def price(crop):
+    message = "The price of %s today is %.2f per bushel." % (crop, 3.36)
+    return message
+    
 def sevenDayForecast(lat, lng):
     api_key = "ce9fcb652adc05193d2aa663d1a3f4ac"
 
