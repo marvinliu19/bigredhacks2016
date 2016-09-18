@@ -89,8 +89,8 @@ body {
 .title {
     text-align: left;
     position: absolute;
-    left: 21%;
-    top: 25%;
+    left: 22%;
+    top: 24%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: white;
