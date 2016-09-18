@@ -1,6 +1,10 @@
 import datetime
 import forecastio
 
+def price(crop):
+    message = "The price of %s today is %.2f per bushel." % (crop, 3.36)
+    return message
+    
 def sevenDayForecast(lat, lng):
     api_key = "ce9fcb652adc05193d2aa663d1a3f4ac"
 
@@ -30,7 +34,7 @@ def sevenDayForecast(lat, lng):
 
             precType = str(daily_data_point.precipType)
             text = temp + '\n' + precProb + " chance of " + inten + precType
-            
+
 
 
         date  = str(datetime.date.today() + datetime.timedelta(days=day))
@@ -44,4 +48,4 @@ def sevenDayForecast(lat, lng):
     return (fullTextMsg)
 
 if __name__ == "__sevenDayForecast__":
-    sevenDayForcast(33, -117)
+    print sevenDayForcast(33, -117)
