@@ -1,0 +1,345 @@
+.parallax {
+    height: 500px;
+    /* fallback for older browsers */
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+}
+
+.parallax__group {
+    position: relative;
+    height: 500px;
+    /* fallback for older browsers */
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.parallax__layer--fore {
+    -webkit-transform: translateZ(-90px) translate(1);
+    transform: translateZ(-90px) translate(1);
+    z-index: 90;
+}
+
+.parallax__layer--foreSub {
+    -webkit-transform: translateZ(-90px) translate(7);
+    transform: translateZ(-90px) translate(7);
+    z-index: 2;
+}
+
+.parallax__layer--base {
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px);
+    z-index: 3;
+}
+
+.parallax__layer--baseImage {
+    -webkit-transform: translateZ(100px) scale(.7);
+    transform: translateZ(100px) scale(.7);
+    z-index: 2;
+}
+
+.parallax__layer--back {
+    -webkit-transform: translateZ(-300px) scale(2);
+    transform: translateZ(-1px) scale(2);
+    z-index: 4;
+}
+
+.parallax__layer--deep {
+    -webkit-transform: translateZ(-600px) scale(3);
+    transform: translateZ(-600px) scale(3);
+    z-index: 3;
+}
+
+
+/* demo styles
+--------------------------------------------- */
+
+body,
+html {
+    overflow: hidden;
+}
+
+body {
+    font: 100% / 1.5 Arial;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.parallax {
+    font-size: 200%;
+}
+
+
+/* centre the content in the parallax layers */
+
+.title {
+    text-align: left;
+    position: absolute;
+    left: 21%;
+    top: 25%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 75pt;
+}
+
+.subTitle {
+    text-align: left;
+    position: absolute;
+    left: 36%;
+    top: 35%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 28pt;
+}
+
+.subParagraph {
+    text-align: left;
+    position: absolute;
+    left: 36%;
+    top: 45%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'PT Sans', sans-serif;
+    color: white;
+    font-size: 14pt;
+}
+
+.subParagraph1 {
+    text-align: left;
+    position: absolute;
+    left: 22%;
+    top: 49%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'PT Sans', sans-serif;
+    color: white;
+    font-size: 14pt;
+}
+
+.subParagraph2 {
+    text-align: left;
+    position: absolute;
+    left: 24%;
+    top: 53%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'PT Sans', sans-serif;
+    color: white;
+    font-size: 14pt;
+}
+
+.rightTitle {
+    text-align: right;
+    position: absolute;
+    right: 20%;
+    top: 42%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'Raleway', sans-serif;
+    color: beige;
+    font-size: 28pt;
+}
+
+.rightSub {
+    text-align: left;
+    position: absolute;
+    right: 25%;
+    top: 21%;
+    -webkit-transform: translate(-80%, -80%);
+    transform: translate(-80%, -80%);
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 28pt;
+}
+
+.rightSub1 {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 28pt;
+}
+
+.rightParagraph {
+    text-align: left;
+    position: absolute;
+    left: 70.3%;
+    top: 53.5%;
+    -webkit-transform: translate(-80%, -80%);
+    transform: translate(-80%, -80%);
+    font-family: 'PT Sans', sans-serif;
+    color: white;
+    font-size: 14pt;
+}
+
+.rightParagraph1 {
+    text-align: left;
+    position: absolute;
+    left: 75.8%;
+    top: 66%;
+    -webkit-transform: translate(-80%, -80%);
+    transform: translate(-80%, -80%);
+    font-family: 'PT Sans', sans-serif;
+    color: white;
+    font-size: 14pt;
+}
+
+.rightSubCorn {
+    text-align: left;
+    position: absolute;
+    right: 25%;
+    top: 38%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 28pt;
+    max-height: 3px;
+    max-width: 3px;
+}
+
+.imageLeft {
+    text-align: left;
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    -webkit-transform: translate(-40%, -40%);
+    transform: translate(-40%, -40%);
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 28pt;
+    max-height: 3px;
+    max-width: 3px;
+}
+
+.imageLeft1 {
+    text-align: left;
+    position: absolute;
+    left: 29%;
+    top: 5%;
+    -webkit-transform: translate(-40%, -40%);
+    transform: translate(-40%, -40%);
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 28pt;
+    max-height: 3px;
+    max-width: 3px;
+}
+
+.imageLeft2 {
+    text-align: left;
+    position: absolute;
+    left: 19.5%;
+    top: 42%;
+    -webkit-transform: translate(-40%, -40%);
+    transform: translate(-40%, -40%);
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 28pt;
+    max-height: 3px;
+    max-width: 3px;
+}
+
+
+/* style the groups
+--------------------------------------------- */
+
+#group2 {
+    z-index: 3;
+    /* slide under groups 1 and 3 */
+}
+
+#group2 .parallax__layer--back {}
+
+#group2 .parallax__layer--fore {
+    /*background-color: #84DCC6;*/
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#group2 .parallax__layer--deep {
+    /*background-color: #84DCC6;*/
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("http://westernfarmpress.com/site-files/westernfarmpress.com/files/imagecache/large_img/uploads/2013/06/soil-dirt-farm.jpg")
+}
+
+#group3 {
+    z-index: 4;
+    /* slide over group 2 and 4 */
+}
+
+#group3 .parallax__layer--fore {
+    /*background-color: #84DCC6;*/
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#group3 .parallax__layer--base {
+    background: #52528C;
+}
+
+#group3 .parallax__layer--deep {
+    background: #52528C;
+}
+
+#group4 {
+    z-index: 26;
+    /* slide under group 3 and 5 */
+}
+
+#group4 .parallax__layer--base {
+    background-color: #1B5299;
+    background-position: center;
+}
+
+#group5 {
+    z-index: 3;
+    /* slide over group 4 and 6 */
+}
+
+#group5 .parallax__layer--base {
+    background: #007EA7;
+}
+
+#group6 {
+    z-index: 2;
+    /* slide under group 5 and 7 */
+}
+
+#group6 .parallax__layer--back {
+    /*background-image: url('http://www.pictwalls.com/wp-content/uploads/2014/06/black-and-white-wallpaper-iphone-2.jpg');
+    background-position: center;*/
+}
+
+#group7 {
+    z-index: 3;
+    /* slide over group 7 */
+}
+
+#group7 .parallax__layer--base {
+    background: rgb(255, 241, 100);
+}
